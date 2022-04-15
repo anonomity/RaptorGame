@@ -1,0 +1,82 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Characters/main_character.gd" type="Script" id=1]
+[ext_resource path="res://Scene/HUD.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/bird.png" type="Texture" id=3]
+[ext_resource path="res://sounds/pew.mp3" type="AudioStream" id=4]
+[ext_resource path="res://sounds/ow.mp3" type="AudioStream" id=5]
+[ext_resource path="res://sounds/pow.mp3" type="AudioStream" id=6]
+[ext_resource path="res://sounds/explosion.mp3" type="AudioStream" id=7]
+[ext_resource path="res://sounds/bsju.mp3" type="AudioStream" id=8]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 18, 17.5 )
+
+[node name="raptor" type="KinematicBody2D" groups=["raptor"]]
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -0.5 )
+shape = SubResource( 3 )
+
+[node name="HUD" parent="." instance=ExtResource( 2 )]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="beak" type="Position2D" parent="."]
+position = Vector2( -1, -47 )
+
+[node name="pew3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="ow" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.0
+
+[node name="rapid_fire" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="normal_shoot" type="Timer" parent="."]
+wait_time = 0.3
+
+[node name="rapid_fire_duration" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="double_shoot_duration" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="pow" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -10.0
+
+[node name="nuke" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -10.0
+
+[node name="laser_shoot" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="laser_shoot_duration" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="bsju" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -10.0
+
+[node name="pew" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -9.904
+mix_target = 2
+bus = "atte"
+
+[node name="dub_shoot" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="timeout" from="rapid_fire" to="." method="_on_rapid_fire_timeout"]
+[connection signal="timeout" from="normal_shoot" to="." method="_on_normal_shoot_timeout"]
+[connection signal="timeout" from="rapid_fire_duration" to="." method="_on_rapid_fire_duration_timeout"]
+[connection signal="timeout" from="double_shoot_duration" to="." method="_on_double_shoot_duration_timeout"]
+[connection signal="timeout" from="laser_shoot" to="." method="_on_laser_shoot_timeout"]
+[connection signal="timeout" from="laser_shoot_duration" to="." method="_on_laser_shoot_duration_timeout"]
+[connection signal="timeout" from="dub_shoot" to="." method="_on_dub_shoot_timeout"]

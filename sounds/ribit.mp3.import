@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ribit.mp3-c44814edee0fe1e7db679f56aabd2246.mp3str"
+
+[deps]
+
+source_file="res://sounds/ribit.mp3"
+dest_files=[ "res://.import/ribit.mp3-c44814edee0fe1e7db679f56aabd2246.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

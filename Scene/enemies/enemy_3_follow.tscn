@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scene/enemies/enemy_3.tscn" type="PackedScene" id=1]
+
+[node name="enemy_3_follow" type="PathFollow2D" groups=["path"]]
+
+[node name="enemy_3" parent="." instance=ExtResource( 1 )]

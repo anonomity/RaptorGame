@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/bsju.mp3-db5acffd08aaeb29dd803d4c75713564.mp3str"
+
+[deps]
+
+source_file="res://sounds/bsju.mp3"
+dest_files=[ "res://.import/bsju.mp3-db5acffd08aaeb29dd803d4c75713564.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

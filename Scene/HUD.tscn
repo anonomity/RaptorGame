@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Fonts/Roboto-Black.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scene/HUD.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.145098, 0.717647, 0.32549, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.262745, 0.313726, 0.403922, 1 )
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="score" type="RichTextLabel" parent="Control"]
+margin_left = 83.0
+margin_right = 100.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 100, 0 )
+custom_fonts/normal_font = SubResource( 3 )
+text = "score : 0
+"
+
+[node name="health_bar" type="ProgressBar" parent="Control"]
+anchor_right = 0.489
+margin_left = 30.0
+margin_top = 960.0
+margin_right = 100.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 960, 21.804 )
+rect_rotation = 270.0
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+value = 100.0
+percent_visible = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+margin_left = 932.0
+margin_top = 19.0
+margin_right = 1282.0
+margin_bottom = 94.0
+rect_min_size = Vector2( 350, 75 )
+alignment = 1
+
+[node name="pos4" type="TextureRect" parent="Control/HBoxContainer"]
+margin_left = 137.0
+margin_right = 169.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 32, 32 )
+
+[node name="pos3" type="TextureRect" parent="Control/HBoxContainer"]
+margin_left = 173.0
+margin_right = 205.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 32, 32 )
+
+[node name="pos2" type="TextureRect" parent="Control/HBoxContainer"]
+margin_left = 209.0
+margin_right = 209.0
+margin_bottom = 75.0
+
+[node name="pos1" type="TextureRect" parent="Control/HBoxContainer"]
+margin_left = 213.0
+margin_right = 213.0
+margin_bottom = 75.0
